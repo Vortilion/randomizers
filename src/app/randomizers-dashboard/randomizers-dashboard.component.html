@@ -1,0 +1,52 @@
+<ng-container *transloco="let t; read: 'dashboard'">
+  <div class="dashboard flex min-h-screen flex-col">
+    <header class="dashboard__hero px-4 py-6 xSmall:px-8 xSmall:py-8">
+      <div class="dashboard__topbar mb-8 flex items-start justify-between gap-4">
+        <div>
+          <p class="dashboard__eyebrow mb-2">{{ t('eyebrow') }}</p>
+          <h1 class="dashboard__title text-4xl xSmall:text-5xl">{{ t('title') }}</h1>
+          <p class="dashboard__subtitle mt-3 max-w-3xl text-base xSmall:text-lg">
+            {{ t('subtitle') }}
+          </p>
+        </div>
+        <app-language-selector />
+      </div>
+    </header>
+
+    <main class="flex-1 px-4 pb-8 xSmall:px-8">
+      <div class="grid gap-4 lg:grid-cols-2">
+        <mat-card class="dashboard-card">
+          <mat-card-header>
+            <mat-card-title>{{ t('argentina.title') }}</mat-card-title>
+            <mat-card-subtitle>{{ t('argentina.subtitle') }}</mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <p>{{ t('argentina.description') }}</p>
+          </mat-card-content>
+          <mat-card-actions>
+            <a mat-flat-button color="primary" routerLink="/randomizers/argentina">
+              {{ t('argentina.action') }}
+            </a>
+          </mat-card-actions>
+        </mat-card>
+
+        <mat-card class="dashboard-card">
+          <mat-card-header>
+            <mat-card-title>{{ t('second-edition.title') }}</mat-card-title>
+            <mat-card-subtitle>{{ t('second-edition.subtitle') }}</mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <p>{{ t('second-edition.description') }}</p>
+          </mat-card-content>
+          <mat-card-actions>
+            <a mat-flat-button color="primary" routerLink="/randomizers/2nd-edition">
+              {{ t('second-edition.action') }}
+            </a>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </main>
+
+    <app-page-footer />
+  </div>
+</ng-container>
