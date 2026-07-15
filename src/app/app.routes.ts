@@ -5,22 +5,16 @@ import { SecondEditionComponent } from './second-edition/second-edition.componen
 
 export const routes: Routes = [
   {
-    path: 'randomizers',
-    children: [
-      {
-        path: '',
-        component: RandomizersDashboardComponent,
-      },
-      {
-        path: 'argentina',
-        component: ArgentinaComponent,
-      },
-      {
-        path: '2nd-edition',
-        component: SecondEditionComponent,
-      },
-    ],
+    path: '',
+    component: RandomizersDashboardComponent,
   },
-  { path: '', redirectTo: 'randomizers', pathMatch: 'full' },
-  { path: '**', redirectTo: 'randomizers', pathMatch: 'full' },
+  {
+    path: 'argentina',
+    component: ArgentinaComponent,
+  },
+  {
+    path: '2nd-edition',
+    component: SecondEditionComponent,
+  },
+  { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
