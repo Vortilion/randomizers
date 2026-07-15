@@ -1,0 +1,109 @@
+{
+  "configVersion": 1,
+  "timestamp": 1784121411222,
+  "index": "https://vortilion.github.io/randomizers/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "https://vortilion.github.io/randomizers/favicon.ico",
+        "https://vortilion.github.io/randomizers/index.html",
+        "https://vortilion.github.io/randomizers/main-UNL5DS43.js",
+        "https://vortilion.github.io/randomizers/manifest.webmanifest",
+        "https://vortilion.github.io/randomizers/styles-CJ4IB4CQ.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "https://vortilion.github.io/randomizers/apple-touch-icon.png",
+        "https://vortilion.github.io/randomizers/favicon-16x16.png",
+        "https://vortilion.github.io/randomizers/favicon-32x32.png",
+        "https://vortilion.github.io/randomizers/icons/icon-192x192.png",
+        "https://vortilion.github.io/randomizers/icons/icon-256x256.png",
+        "https://vortilion.github.io/randomizers/icons/icon-384x384.png",
+        "https://vortilion.github.io/randomizers/icons/icon-512x512.png",
+        "https://vortilion.github.io/randomizers/img/second-edition/station-master-01.png",
+        "https://vortilion.github.io/randomizers/img/second-edition/station-master-02.png",
+        "https://vortilion.github.io/randomizers/img/second-edition/station-master-03.png",
+        "https://vortilion.github.io/randomizers/img/second-edition/station-master-04.png",
+        "https://vortilion.github.io/randomizers/img/second-edition/station-master-05.png",
+        "https://vortilion.github.io/randomizers/img/second-edition/station-master-06.png",
+        "https://vortilion.github.io/randomizers/img/second-edition/station-master-07.png",
+        "https://vortilion.github.io/randomizers/img/second-edition/station-master-08.png",
+        "https://vortilion.github.io/randomizers/img/second-edition/station-master-09.png",
+        "https://vortilion.github.io/randomizers/img/station-master-01.png",
+        "https://vortilion.github.io/randomizers/img/station-master-02.png",
+        "https://vortilion.github.io/randomizers/img/station-master-03.png",
+        "https://vortilion.github.io/randomizers/img/station-master-04.png",
+        "https://vortilion.github.io/randomizers/img/station-master-05.png",
+        "https://vortilion.github.io/randomizers/img/station-master-06.png",
+        "https://vortilion.github.io/randomizers/img/station-master-07.png",
+        "https://vortilion.github.io/randomizers/img/station-master-08.png"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "https://vortilion.github.io/randomizers/apple-touch-icon.png": "19623438bf0af0a7254b6a9ae7cfadaeec05fcd1",
+    "https://vortilion.github.io/randomizers/favicon-16x16.png": "51d85bfd0c7f291e87cc26dbbbaf9a47624682ac",
+    "https://vortilion.github.io/randomizers/favicon-32x32.png": "530c7e60fddb65c0ff65769961c4971768b4fa8b",
+    "https://vortilion.github.io/randomizers/favicon.ico": "f7357adb0a60cd0d29878becb72db669d9b3cec1",
+    "https://vortilion.github.io/randomizers/icons/icon-192x192.png": "e00f158a1a455504be29b57fed24a460bf87875e",
+    "https://vortilion.github.io/randomizers/icons/icon-256x256.png": "a3151cc3f34e905b7caf2401f4f1b6c8a26593d0",
+    "https://vortilion.github.io/randomizers/icons/icon-384x384.png": "1c09aac08839a125fc1c58e16360c76c3288cf2b",
+    "https://vortilion.github.io/randomizers/icons/icon-512x512.png": "7bf5711be7f32d360c3adfff06d06d7dc52ca20b",
+    "https://vortilion.github.io/randomizers/img/second-edition/station-master-01.png": "af0f9a58ef91c22a8d8d145c53de3c98f535b477",
+    "https://vortilion.github.io/randomizers/img/second-edition/station-master-02.png": "8b78e906ab8dca113cbcddf6863a86cf283c54ef",
+    "https://vortilion.github.io/randomizers/img/second-edition/station-master-03.png": "f38a4b964c5d694a7b55198b36d1da8c12c9787e",
+    "https://vortilion.github.io/randomizers/img/second-edition/station-master-04.png": "653f8626a46e44c04dab15a836908538551f45f9",
+    "https://vortilion.github.io/randomizers/img/second-edition/station-master-05.png": "ea2ae306460ac8f67796d0d6f95f4abbb80116dd",
+    "https://vortilion.github.io/randomizers/img/second-edition/station-master-06.png": "823e7a90da826d22479d65179971ee72696714ab",
+    "https://vortilion.github.io/randomizers/img/second-edition/station-master-07.png": "e5b541bdcd58fe821011bcd0ec31b9c642a09cfe",
+    "https://vortilion.github.io/randomizers/img/second-edition/station-master-08.png": "ea84b6e6f8c677ff8ddb0cd183b0f5f9b471d9f7",
+    "https://vortilion.github.io/randomizers/img/second-edition/station-master-09.png": "4d5b1a0880aec27148b3b3e438e62a81d43fcda5",
+    "https://vortilion.github.io/randomizers/img/station-master-01.png": "ba48255fff4149904071aff08fddfc17ffc6cc14",
+    "https://vortilion.github.io/randomizers/img/station-master-02.png": "f0fc45698e37ad9bf76f27b66e1c24570c924297",
+    "https://vortilion.github.io/randomizers/img/station-master-03.png": "c33c27a91c09eb206e8a716640db5878993dbeb0",
+    "https://vortilion.github.io/randomizers/img/station-master-04.png": "f53180c073ce83901cc1dc4c48cb9d92ddc024bb",
+    "https://vortilion.github.io/randomizers/img/station-master-05.png": "67deedb0d02654c7836cdc28132ac4ba302d361e",
+    "https://vortilion.github.io/randomizers/img/station-master-06.png": "57a503fab1a49d24f593813484521200cdddbada",
+    "https://vortilion.github.io/randomizers/img/station-master-07.png": "ecc6cc9e63cf4768f0dd82c4508ae636c7dd0809",
+    "https://vortilion.github.io/randomizers/img/station-master-08.png": "9b51f4c21199d4b2dc54d7f88805dbed42da2d7e",
+    "https://vortilion.github.io/randomizers/index.html": "c436eef734dbe900c3acdf0eb804ef0daa78755a",
+    "https://vortilion.github.io/randomizers/main-UNL5DS43.js": "728edfae7465bee95870fbd8eb68ee9ad6172908",
+    "https://vortilion.github.io/randomizers/manifest.webmanifest": "13762debd053a7522efce76c6ff7f4e31f5caa66",
+    "https://vortilion.github.io/randomizers/styles-CJ4IB4CQ.css": "67bc30264d88115ab0912a8bfb02ad5a06fd6ca3"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ],
+  "navigationRequestStrategy": "performance"
+}
