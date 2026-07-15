@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1784123357620,
+  "timestamp": 1784123924076,
   "index": "https://vortilion.github.io/randomizers/index.html",
   "assetGroups": [
     {
@@ -13,7 +13,7 @@
       "urls": [
         "https://vortilion.github.io/randomizers/favicon.ico",
         "https://vortilion.github.io/randomizers/index.html",
-        "https://vortilion.github.io/randomizers/main-V5T2SE2L.js",
+        "https://vortilion.github.io/randomizers/main-ZN7BUCZ3.js",
         "https://vortilion.github.io/randomizers/manifest.webmanifest",
         "https://vortilion.github.io/randomizers/styles-CJ4IB4CQ.css"
       ],
@@ -82,8 +82,8 @@
     "https://vortilion.github.io/randomizers/img/station-master-06.png": "57a503fab1a49d24f593813484521200cdddbada",
     "https://vortilion.github.io/randomizers/img/station-master-07.png": "ecc6cc9e63cf4768f0dd82c4508ae636c7dd0809",
     "https://vortilion.github.io/randomizers/img/station-master-08.png": "9b51f4c21199d4b2dc54d7f88805dbed42da2d7e",
-    "https://vortilion.github.io/randomizers/index.html": "8d0af8c905df854d4ad40e8bbc22519022b4c73a",
-    "https://vortilion.github.io/randomizers/main-V5T2SE2L.js": "b4ae9f05989710e5d71d4236c2597cab06f247e9",
+    "https://vortilion.github.io/randomizers/index.html": "8899c7cd4a8e52e1c83adecfe7063cab19528014",
+    "https://vortilion.github.io/randomizers/main-ZN7BUCZ3.js": "1b0cfcff37106557646614c5e5cbeb21187af5c3",
     "https://vortilion.github.io/randomizers/manifest.webmanifest": "508f5f45fef07b9dbb63625caff78b605adf6839",
     "https://vortilion.github.io/randomizers/styles-CJ4IB4CQ.css": "67bc30264d88115ab0912a8bfb02ad5a06fd6ca3"
   },
