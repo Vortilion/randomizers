@@ -1,5 +1,4 @@
-import { CommonModule } from '@angular/common';
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, signal, inject } from '@angular/core';
 import {
   TranslocoService,
   TranslocoPipe,
@@ -10,31 +9,34 @@ import { MaterialModule } from '../material/material.module';
 @Component({
   selector: 'app-language-selector',
   standalone: true,
-  imports: [CommonModule, MaterialModule, TranslocoPipe],
+  imports: [MaterialModule, TranslocoPipe],
   templateUrl: './language-selector.component.html',
   styleUrls: ['./language-selector.component.scss'],
 })
-export class LanguageSelectorComponent implements OnInit {
+export class LanguageSelectorComponent {
   private translocoService = inject(TranslocoService);
 
-  activeLang!: string;
-  availableLangs!: ReturnType<TranslocoService['getAvailableLangs']>;
+  activeLang = signal<string>('');
+  availableLangs = signal<ReturnType<TranslocoService['getAvailableLangs']>>([]);
 
-  ngOnInit(): void {
+  constructor() {
     const browserLang = getBrowserLang();
-
-    this.availableLangs = this.translocoService.getAvailableLangs();
+    const availableLangs = this.translocoService.getAvailableLangs();
+    this.availableLangs.set(availableLangs);
 
     if (browserLang && this.translocoService.isLang(browserLang)) {
-      this.activeLang = browserLang;
-      this.translocoService.setActiveLang(this.activeLang);
+      this.activeLang.set(browserLang);
+      this.translocoService.setActiveLang(browserLang);
     } else {
-      this.activeLang = this.translocoService.getDefaultLang();
+      const defaultLang = this.translocoService.getDefaultLang();
+      this.activeLang.set(defaultLang);
     }
   }
 
-  changeLanguage(lang: string): void {
-    this.translocoService.setActiveLang(lang);
-    this.activeLang = this.translocoService.getActiveLang();
+  changeLanguage(lang: string | unknown): void {
+    if (typeof lang === 'string') {
+      this.translocoService.setActiveLang(lang);
+      this.activeLang.set(this.translocoService.getActiveLang());
+    }
   }
 }

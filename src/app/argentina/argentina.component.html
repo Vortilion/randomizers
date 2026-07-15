@@ -1,18 +1,18 @@
 <ng-container *transloco="let t; read: 'argentina'">
-  <div class="argentina-component flex flex-col" [class.is-mobile]="isXSmall">
+  <div class="argentina-component flex flex-col" [class.is-mobile]="isXSmall()">
     <app-page-header [sidebarHandle]="sidenav" [dashboardRoute]="'/'" [titlePrefix]="'argentina.'"> </app-page-header>
 
     <mat-sidenav-container
       class="sidenav-container flex-1"
-      [style.paddingTop.px]="isXSmall ? 56 : 0"
+      [style.paddingTop.px]="isXSmall() ? 56 : 0"
       >
       <mat-sidenav
         class="sidenav"
         #sidenav
-        [mode]="isXSmall ? 'over' : 'side'"
-        [fixedInViewport]="isXSmall"
+        [mode]="isXSmall() ? 'over' : 'side'"
+        [fixedInViewport]="isXSmall()"
         fixedTopGap="56"
-        [opened]="isXSmall ? 'false' : 'opened'"
+        [opened]="!isXSmall() ? true : false"
         >
         <div class="sidenav__inner p-4">
           <h2>{{ t("options-label") }}:</h2>
@@ -22,10 +22,10 @@
           <mat-form-field appearance="fill">
             <mat-label>{{ t("player-count-select-label") }}</mat-label>
             <mat-select
-              [value]="playerCount"
+              [value]="playerCount()"
               (selectionChange)="onPlayerCountChange($event)"
               >
-              @for (playerCount of playerCountList; track playerCount) {
+              @for (playerCount of playerCountList(); track playerCount) {
                 <mat-option
                   [value]="playerCount.value"
                   >
@@ -51,11 +51,11 @@
               </button>
             </div>
             <mat-grid-list
-              [cols]="isMax1280 ? 1 : 2"
+              [cols]="isMax1280() ? 1 : 2"
               rowHeight="180px"
               gutterSize="5px"
               >
-              @if (randomNeutralBuildings.length > 0) {
+              @if (randomNeutralBuildings().length > 0) {
                 <mat-grid-tile>
                   <mat-grid-tile-header>
                     <h3>
@@ -64,7 +64,7 @@
                       </h3>
                     </mat-grid-tile-header>
                     <ul class="flex">
-                      @for (neutralBuilding of randomNeutralBuildings; track neutralBuilding) {
+                      @for (neutralBuilding of randomNeutralBuildings(); track neutralBuilding) {
                         <li
                           class="px-2 text-2xl xSmall:text-xl"
                           >
@@ -74,7 +74,7 @@
                     </ul>
                   </mat-grid-tile>
                 }
-                @if (randomStationMasters && randomStationMasters.length > 0) {
+                @if (randomStationMasters().length > 0) {
                   <mat-grid-tile
                     >
                     <mat-grid-tile-header>
@@ -84,7 +84,7 @@
                         </h3>
                       </mat-grid-tile-header>
                       <div class="flex">
-                        @for (randomStationMaster of randomStationMasters; track randomStationMaster) {
+                        @for (randomStationMaster of randomStationMasters(); track randomStationMaster) {
                           <div>
                             <img
                               class="px-1 xSmall:px-2 md:px-4"
@@ -105,7 +105,7 @@
                         </h3>
                       </mat-grid-tile-header>
                       <div class="flex flex-wrap">
-                        @for (randomPlayerBuilding of randomPlayerBuildings; track randomPlayerBuilding) {
+                        @for (randomPlayerBuilding of randomPlayerBuildings(); track randomPlayerBuilding) {
                           <span
                             class="px-2 text-2xl xSmall:text-xl flex-1"
                             >
@@ -125,7 +125,7 @@
                           </h3>
                         </mat-grid-tile-header>
                         <div class="flex flex-wrap">
-                          @for (randomCity of randomCities; track randomCity) {
+                          @for (randomCity of randomCities(); track randomCity) {
                             <span
                               class="px-2 text-2xl xSmall:text-xl flex-1"
                               >
@@ -191,17 +191,17 @@
                           <li>
                             {{ t("further-steps-step4") }}
                             <ul class="list-disc pl-8 text-gray-400">
-                              @if (playerCount === 2) {
+                              @if (playerCount() === 2) {
                                 <li>
                                   {{ t("further-steps-step41") }}
                                 </li>
                               }
-                              @if (playerCount === 3) {
+                              @if (playerCount() === 3) {
                                 <li>
                                   {{ t("further-steps-step42") }}
                                 </li>
                               }
-                              @if (playerCount === 4) {
+                              @if (playerCount() === 4) {
                                 <li>
                                   {{ t("further-steps-step43") }}
                                 </li>
@@ -220,17 +220,17 @@
                           <li>
                             {{ t("further-steps-step7") }}
                             <ul class="list-disc pl-8 text-gray-400">
-                              @if (playerCount === 2) {
+                              @if (playerCount() === 2) {
                                 <li>
                                   {{ t("further-steps-step71") }}
                                 </li>
                               }
-                              @if (playerCount === 3) {
+                              @if (playerCount() === 3) {
                                 <li>
                                   {{ t("further-steps-step72") }}
                                 </li>
                               }
-                              @if (playerCount === 4) {
+                              @if (playerCount() === 4) {
                                 <li>
                                   {{ t("further-steps-step73") }}
                                 </li>
@@ -242,12 +242,12 @@
                             <ul class="list-disc pl-8 text-gray-400">
                               <li>{{ t("further-steps-step81") }}</li>
                               <li>{{ t("further-steps-step82") }}</li>
-                              @if (playerCount >= 3) {
+                              @if (playerCount() >= 3) {
                                 <li>
                                   {{ t("further-steps-step83") }}
                                 </li>
                               }
-                              @if (playerCount > 3) {
+                              @if (playerCount() > 3) {
                                 <li>
                                   {{ t("further-steps-step84") }}
                                 </li>

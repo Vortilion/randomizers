@@ -1,8 +1,10 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { MatSidenav } from '@angular/material/sidenav';
-import { Component, Input, OnInit, inject } from '@angular/core';
+import { Component, input, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { TranslocoPipe } from '@jsverse/transloco';
+import { toSignal } from '@angular/core/rxjs-interop';
+import { map } from 'rxjs/operators';
 import { LanguageSelectorComponent } from '../language-selector/language-selector.component';
 import { MaterialModule } from '../material/material.module';
 
@@ -18,21 +20,30 @@ import { MaterialModule } from '../material/material.module';
   templateUrl: './page-header.component.html',
   styleUrls: ['./page-header.component.scss'],
 })
-export class PageHeaderComponent implements OnInit {
+export class PageHeaderComponent {
   private responsive = inject(BreakpointObserver);
 
-  @Input() sidebarHandle!: MatSidenav;
-  @Input() dashboardRoute?: string;
-  @Input() titlePrefix = '';
-  isXSmall!: boolean;
+  sidebarHandle = input.required<MatSidenav>();
+  dashboardRoute = input<string>();
+  titlePrefix = input<string>('');
 
-  ngOnInit(): void {
-    this.responsive.observe(Breakpoints.XSmall).subscribe((result) => {
-      if (result.matches) {
-        this.isXSmall = true;
-      } else {
-        this.isXSmall = false;
-      }
-    });
+  // Unwrap signals for template use
+  get sidebarHandleRef(): MatSidenav {
+    return this.sidebarHandle();
   }
+
+  get dashboardRouteRef(): string | undefined {
+    return this.dashboardRoute();
+  }
+
+  get titlePrefixRef(): string {
+    return this.titlePrefix();
+  }
+
+  isXSmall = toSignal(
+    this.responsive.observe(Breakpoints.XSmall).pipe(
+      map((result) => result.matches)
+    ),
+    { initialValue: false }
+  );
 }

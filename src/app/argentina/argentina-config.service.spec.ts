@@ -18,27 +18,17 @@ describe('ArgentinaConfigService', () => {
   });
 
   describe('playerCount', () => {
-    it('should emit player counts', () => {
-      let emitted: number | null = null;
-
-      service.playerCount.subscribe((value) => {
-        emitted = value;
-      });
-
-      service.playerCount.emit(3);
-
-      expect(emitted).toBe(3);
+    it('should set and read player count', () => {
+      service.setPlayerCount(3);
+      expect(service.playerCount()).toBe(3);
     });
 
-    it('should notify multiple player count subscribers', () => {
-      const emitted: number[] = [];
+    it('should notify when player count changes', () => {
+      service.setPlayerCount(2);
+      expect(service.playerCount()).toBe(2);
 
-      service.playerCount.subscribe((value) => emitted.push(value));
-      service.playerCount.subscribe((value) => emitted.push(value * 10));
-
-      service.playerCount.emit(2);
-
-      expect(emitted).toEqual([2, 20]);
+      service.setPlayerCount(3);
+      expect(service.playerCount()).toBe(3);
     });
   });
 

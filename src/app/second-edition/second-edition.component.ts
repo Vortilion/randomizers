@@ -1,10 +1,12 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, signal, inject } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
 import { FormsModule } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import type { MatSelectChange } from '@angular/material/select';
 import type { MatSlideToggleChange } from '@angular/material/slide-toggle';
 import { TranslocoDirective } from '@jsverse/transloco';
+import { map } from 'rxjs/operators';
 import { MaterialModule } from '../material/material.module';
 import type { PlayerCountOption } from '../models/player-count-option.model';
 import type { Tile } from '../models/tile.model';
@@ -27,62 +29,52 @@ import { VariantWarningDialogComponent } from './variant-warning-dialog.componen
   templateUrl: './second-edition.component.html',
   styleUrl: './second-edition.component.scss',
 })
-export class SecondEditionComponent implements OnInit {
+export class SecondEditionComponent {
   readonly dialog = inject(MatDialog);
   private applicationConfigService = inject(SecondEditionConfigService);
   private responsive = inject(BreakpointObserver);
   private storage = inject(LocalStorageService);
 
-  randomNeutralBuildings!: Tile[];
-  randomPlayerBuildings!: Tile[];
-  randomStationMasters!: Tile[];
-  playerCount!: number;
-  playerCountList!: PlayerCountOption[];
-  isXSmall!: boolean;
-  isMax1280!: boolean;
-  useSimmental!: boolean;
-  useBrahman!: boolean;
-  useRailsToTheNorth!: boolean;
+  randomNeutralBuildings = signal<Tile[]>([]);
+  randomPlayerBuildings = signal<Tile[]>([]);
+  randomStationMasters = signal<Tile[]>([]);
+  playerCountList = signal<PlayerCountOption[]>([
+    { label: '2', value: 2 },
+    { label: '3', value: 3 },
+    { label: '4', value: 4 },
+  ]);
 
-  ngOnInit(): void {
-    this.playerCount = 2;
-    this.playerCountList = [
-      {
-        label: '2',
-        value: 2,
-      },
-      {
-        label: '3',
-        value: 3,
-      },
-      {
-        label: '4',
-        value: 4,
-      },
-    ];
+  isXSmall = toSignal(
+    this.responsive.observe(Breakpoints.XSmall).pipe(
+      map((result) => result.matches)
+    ),
+    { initialValue: false }
+  );
 
-    this.useSimmental = false;
-    this.useRailsToTheNorth = false;
-    this.useBrahman = false;
+  isMax1280 = toSignal(
+    this.responsive.observe('(max-width: 1280px)').pipe(
+      map((result) => result.matches)
+    ),
+    { initialValue: false }
+  );
 
-    this.responsive.observe(Breakpoints.XSmall).subscribe((result) => {
-      this.isXSmall = result.matches;
-    });
+  playerCount = this.applicationConfigService.playerCount;
+  useSimmental = signal<boolean>(false);
+  useBrahman = signal<boolean>(false);
+  useRailsToTheNorth = this.applicationConfigService.useRailsToTheNorth;
 
-    this.responsive.observe('(max-width: 1280px)').subscribe((result) => {
-      this.isMax1280 = result.matches;
-    });
-
+  constructor() {
     const playerCount = this.storage.get<number>('gwt2-playerCount');
     if (typeof playerCount === 'number') {
-      this.emitPlayerCount(playerCount);
+      this.applicationConfigService.setPlayerCount(playerCount);
     } else {
       this.storage.set('gwt2-playerCount', 2);
     }
 
     const useSimmental = this.storage.get<boolean>('gwt2-useSimmental');
     if (typeof useSimmental === 'boolean') {
-      this.applicationConfigService.useVariant.emit({
+      this.useSimmental.set(useSimmental);
+      this.applicationConfigService.setUseVariant({
         name: 'useSimmental',
         checked: useSimmental,
       });
@@ -92,7 +84,8 @@ export class SecondEditionComponent implements OnInit {
 
     const useBrahman = this.storage.get<boolean>('gwt2-useBrahman');
     if (typeof useBrahman === 'boolean') {
-      this.applicationConfigService.useVariant.emit({
+      this.useBrahman.set(useBrahman);
+      this.applicationConfigService.setUseVariant({
         name: 'useBrahman',
         checked: useBrahman,
       });
@@ -102,26 +95,10 @@ export class SecondEditionComponent implements OnInit {
 
     const useRailsToTheNorth = this.storage.get<boolean>('gwt2-useRailsToTheNorth');
     if (typeof useRailsToTheNorth === 'boolean') {
-      this.applicationConfigService.useRailsToTheNorth.emit(useRailsToTheNorth);
+      this.applicationConfigService.setUseRailsToTheNorth(useRailsToTheNorth);
     } else {
       this.storage.set('gwt2-useRailsToTheNorth', false);
     }
-
-    this.applicationConfigService.playerCount.subscribe((playerCountValue: number) => {
-      this.playerCount = playerCountValue;
-    });
-
-    this.applicationConfigService.useVariant.subscribe((event) => {
-      if (event.name === 'useSimmental') {
-        this.useSimmental = event.checked;
-      } else if (event.name === 'useBrahman') {
-        this.useBrahman = event.checked;
-      }
-    });
-
-    this.applicationConfigService.useRailsToTheNorth.subscribe((enabled: boolean) => {
-      this.useRailsToTheNorth = enabled;
-    });
 
     this.randomizeSetup();
   }
@@ -130,65 +107,70 @@ export class SecondEditionComponent implements OnInit {
     return this.dialog.open(VariantWarningDialogComponent);
   }
 
-  emitPlayerCount(playerCount: number) {
-    this.applicationConfigService.playerCount.emit(playerCount);
+  onPlayerCountChange(event: MatSelectChange): void {
+    const playerCount = Number(event.value);
+    this.storage.set('gwt2-playerCount', playerCount);
+    this.applicationConfigService.setPlayerCount(playerCount);
   }
 
-  onPlayerCountChange(event: MatSelectChange) {
-    this.storage.set('gwt2-playerCount', event.value);
-    this.emitPlayerCount(Number(event.value));
-  }
-
-  resetVariants() {
+  resetVariants(): void {
     const dialogRef = this.openDialog();
 
     dialogRef.afterClosed().subscribe(() => {
       this.storage.set('gwt2-useSimmental', false);
-      this.useSimmental = false;
+      this.useSimmental.set(false);
 
-      this.applicationConfigService.useVariant.emit({
+      this.applicationConfigService.setUseVariant({
         name: 'useSimmental',
         checked: false,
       });
 
       this.storage.set('gwt2-useBrahman', false);
-      this.useBrahman = false;
+      this.useBrahman.set(false);
 
-      this.applicationConfigService.useVariant.emit({
+      this.applicationConfigService.setUseVariant({
         name: 'useBrahman',
         checked: false,
       });
     });
   }
 
-  onVariantChange(name: string, event: MatSlideToggleChange) {
+  onVariantChange(name: string, event: MatSlideToggleChange): void {
     if (
-      (this.useBrahman && name === 'useSimmental' && event.checked) ||
-      (this.useSimmental && name === 'useBrahman' && event.checked)
+      (this.useBrahman() && name === 'useSimmental' && event.checked) ||
+      (this.useSimmental() && name === 'useBrahman' && event.checked)
     ) {
       this.resetVariants();
     } else {
       this.storage.set(`gwt2-${event.source.name}`, event.checked);
-      this.applicationConfigService.useVariant.emit({
+      if (name === 'useSimmental') {
+        this.useSimmental.set(event.checked);
+      } else if (name === 'useBrahman') {
+        this.useBrahman.set(event.checked);
+      }
+      this.applicationConfigService.setUseVariant({
         name,
         checked: event.checked,
       });
     }
   }
 
-  onExpansionChange(event: MatSlideToggleChange) {
+  onExpansionChange(event: MatSlideToggleChange): void {
     this.storage.set('gwt2-useRailsToTheNorth', event.checked);
-    this.applicationConfigService.useRailsToTheNorth.emit(event.checked);
+    this.applicationConfigService.setUseRailsToTheNorth(event.checked);
   }
 
-  randomizeSetup() {
-    this.randomNeutralBuildings =
-      this.applicationConfigService.getRandomNeutralBuildingOrder();
+  randomizeSetup(): void {
+    this.randomNeutralBuildings.set(
+      this.applicationConfigService.getRandomNeutralBuildingOrder(),
+    );
 
-    this.randomStationMasters =
-      this.applicationConfigService.getRandomStationMasters();
+    this.randomStationMasters.set(
+      this.applicationConfigService.getRandomStationMasters(),
+    );
 
-    this.randomPlayerBuildings =
-      this.applicationConfigService.getRandomPlayerBuildings();
+    this.randomPlayerBuildings.set(
+      this.applicationConfigService.getRandomPlayerBuildings(),
+    );
   }
 }

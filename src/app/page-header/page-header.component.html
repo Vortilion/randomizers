@@ -1,29 +1,29 @@
 <div class="page-header">
-  <mat-toolbar class="main-toolbar toolbar" [class.is-mobile]="isXSmall">
+  <mat-toolbar class="main-toolbar toolbar" [class.is-mobile]="isXSmall()">
     <button
       type="button"
-      [hidden]="!isXSmall"
+      [hidden]="!isXSmall()"
       mat-icon-button
-      (click)="sidebarHandle.toggle()"
+      (click)="sidebarHandleRef.toggle()"
       >
       <mat-icon>menu</mat-icon>
     </button>
-    @if (dashboardRoute) {
+    @if (dashboardRouteRef) {
       <a
         mat-icon-button
-        [routerLink]="dashboardRoute"
+        [routerLink]="dashboardRouteRef"
         aria-label="Randomizers dashboard"
         >
         <mat-icon>apps</mat-icon>
       </a>
     }
     <span class="app-name text-xl">
-      @if (!isXSmall) {
+      @if (!isXSmall()) {
         <span>{{
-          (titlePrefix + "app-title") | transloco
+          (titlePrefixRef + "app-title") | transloco
         }}</span>
       } @else {
-        <span class="text-xl">{{ (titlePrefix + "app-title-short") | transloco }}</span>
+        <span class="text-xl">{{ (titlePrefixRef + "app-title-short") | transloco }}</span>
       }
 
     </span>

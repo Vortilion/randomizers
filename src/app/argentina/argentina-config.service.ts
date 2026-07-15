@@ -1,11 +1,15 @@
-import { EventEmitter, Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 import type { Tile } from '../models/tile.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ArgentinaConfigService {
-  playerCount = new EventEmitter<number>();
+  playerCount = signal<number>(2);
+
+  setPlayerCount(count: number): void {
+    this.playerCount.set(count);
+  }
 
   neutralBuildings: Tile[] = [
     { title: 'A', sides: [{ title: 'front' }] },

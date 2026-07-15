@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import {
   MatDialogActions,
@@ -21,7 +21,6 @@ import { TranslocoDirective } from '@jsverse/transloco';
     TranslocoDirective,
   ],
   templateUrl: './variant-warning-dialog.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class VariantWarningDialogComponent {
   readonly dialogRef = inject(MatDialogRef<VariantWarningDialogComponent>);

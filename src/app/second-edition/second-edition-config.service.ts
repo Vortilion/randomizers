@@ -1,13 +1,25 @@
-import { EventEmitter, Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 import type { Tile } from '../models/tile.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class SecondEditionConfigService {
-  useVariant = new EventEmitter<{ name: string; checked: boolean }>();
-  useRailsToTheNorth = new EventEmitter<boolean>();
-  playerCount = new EventEmitter<number>();
+  useVariant = signal<{ name: string; checked: boolean } | null>(null);
+  useRailsToTheNorth = signal<boolean>(false);
+  playerCount = signal<number>(2);
+
+  setUseVariant(variant: { name: string; checked: boolean }): void {
+    this.useVariant.set(variant);
+  }
+
+  setUseRailsToTheNorth(enabled: boolean): void {
+    this.useRailsToTheNorth.set(enabled);
+  }
+
+  setPlayerCount(count: number): void {
+    this.playerCount.set(count);
+  }
 
   neutralBuildings: Tile[] = [
     { title: 'A', sides: [{ title: 'front' }] },
