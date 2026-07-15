@@ -1,13 +1,13 @@
 {
-  "name": "Great Western Trail Argentina Randomizer",
-  "app_name": "Great Western Trail Argentina Randomizer",
-  "short_name": "GWTARGRandomizer",
+  "name": "Great Western Trail Randomizer",
+  "app_name": "Great Western Trail Randomizer",
+  "short_name": "GWTRandomizer",
   "theme_color": "#532a26",
   "background_color": "#532a26",
   "display": "standalone",
   "scope": "./",
   "start_url": "./",
-  "description": "A small setup randomizer for the boardgame Great Western Trail Argentina.",
+  "description": "Setup randomizers for the Great Western Trail board game series.",
   "icons": [
     {
       "src": "icons/icon-192x192.png",
