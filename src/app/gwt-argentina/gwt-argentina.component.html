@@ -42,7 +42,7 @@
           <div class="flex-1 px-2 xSmall:px-10 py-5">
             <div class="mb-4">
               <button
-                [class]="{ 'w-full': isXSmall }"
+                [class]="{ 'w-full': isXSmall() }"
                 mat-flat-button
                 color="primary"
                 (click)="randomizeSetup()"
