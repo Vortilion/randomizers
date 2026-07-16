@@ -7,9 +7,8 @@
     "update-available": "Update verfügbar"
   },
   "dashboard": {
-    "eyebrow": "Great Western Trail",
-    "title": "Randomizer",
-    "subtitle": "Wähle einen Setup-Generator und springe direkt in die Edition, die du spielen möchtest.",
+    "title": "Boardgame Setup Randomizers",
+    "subtitle": "Wähle einen verfügbaren Setup-Generator.",
     "argentina": {
       "title": "Great Western Trail Argentinien",
       "subtitle": "Great Western Trail: Argentina",
