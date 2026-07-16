@@ -1,12 +1,12 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
-import { ArgentinaConfigService } from './argentina-config.service';
+import { GwtArgentinaConfigService } from './gwt-argentina-config.service';
 
-describe('ArgentinaConfigService', () => {
-  let service: ArgentinaConfigService;
+describe('GwtArgentinaConfigService', () => {
+  let service: GwtArgentinaConfigService;
 
   beforeEach(() => {
-    service = new ArgentinaConfigService();
+    service = new GwtArgentinaConfigService();
   });
 
   afterEach(() => {

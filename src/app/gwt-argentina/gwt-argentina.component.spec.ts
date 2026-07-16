@@ -1,50 +1,42 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { BreakpointObserver } from '@angular/cdk/layout';
-import { MatDialog } from '@angular/material/dialog';
 import { of } from 'rxjs';
 import { beforeEach, describe, expect, it } from 'vitest';
 
-import { SecondEditionComponent } from './second-edition.component';
+import { GwtArgentinaConfigService } from './gwt-argentina-config.service';
+import { GwtArgentinaComponent } from './gwt-argentina.component';
 import { LocalStorageService } from '../shared/local-storage.service';
-import { SecondEditionConfigService } from './second-edition-config.service';
 
 const breakpointObserverMock = {
   observe: () => of({ matches: false }),
 };
 
 const localStorageServiceMock = {
-  get: () => null,
-  set: () => true,
+  getNumber: () => null,
+  setNumber: () => undefined,
 };
 
-const matDialogMock = {
-  open: () => ({
-    afterClosed: () => of(undefined),
-  }),
-};
-
-describe('SecondEditionComponent', () => {
-  let component: SecondEditionComponent;
-  let fixture: ComponentFixture<SecondEditionComponent>;
+describe('ArgentinaComponent', () => {
+  let component: GwtArgentinaComponent;
+  let fixture: ComponentFixture<GwtArgentinaComponent>;
 
   beforeEach(async () => {
-    TestBed.overrideComponent(SecondEditionComponent, {
+    TestBed.overrideComponent(GwtArgentinaComponent, {
       set: {
         template: '',
       },
     });
 
     await TestBed.configureTestingModule({
-      imports: [SecondEditionComponent],
+      imports: [GwtArgentinaComponent],
       providers: [
-        SecondEditionConfigService,
+        GwtArgentinaConfigService,
         { provide: BreakpointObserver, useValue: breakpointObserverMock },
         { provide: LocalStorageService, useValue: localStorageServiceMock },
-        { provide: MatDialog, useValue: matDialogMock },
       ],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(SecondEditionComponent);
+    fixture = TestBed.createComponent(GwtArgentinaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

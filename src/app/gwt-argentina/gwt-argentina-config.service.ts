@@ -4,18 +4,8 @@ import type { Tile } from '../models/tile.model';
 @Injectable({
   providedIn: 'root',
 })
-export class SecondEditionConfigService {
-  useVariant = signal<{ name: string; checked: boolean } | null>(null);
-  useRailsToTheNorth = signal<boolean>(false);
+export class GwtArgentinaConfigService {
   playerCount = signal<number>(2);
-
-  setUseVariant(variant: { name: string; checked: boolean }): void {
-    this.useVariant.set(variant);
-  }
-
-  setUseRailsToTheNorth(enabled: boolean): void {
-    this.useRailsToTheNorth.set(enabled);
-  }
 
   setPlayerCount(count: number): void {
     this.playerCount.set(count);
@@ -29,6 +19,7 @@ export class SecondEditionConfigService {
     { title: 'E', sides: [{ title: 'front' }] },
     { title: 'F', sides: [{ title: 'front' }] },
     { title: 'G', sides: [{ title: 'front' }] },
+    { title: 'H', sides: [{ title: 'front' }] },
   ];
 
   playerBuildings: Tile[] = [
@@ -42,20 +33,23 @@ export class SecondEditionConfigService {
     { title: '8', sides: [{ title: 'a' }, { title: 'b' }] },
     { title: '9', sides: [{ title: 'a' }, { title: 'b' }] },
     { title: '10', sides: [{ title: 'a' }, { title: 'b' }] },
-    { title: '11', sides: [{ title: 'a' }, { title: 'b' }] },
-    { title: '12', sides: [{ title: 'a' }, { title: 'b' }] },
   ];
 
   stationMasters: Tile[] = [
-    { title: '1', sides: [{ title: 'front', image: 'img/second-edition/station-master-01.png' }] },
-    { title: '2', sides: [{ title: 'front', image: 'img/second-edition/station-master-02.png' }] },
-    { title: '3', sides: [{ title: 'front', image: 'img/second-edition/station-master-03.png' }] },
-    { title: '4', sides: [{ title: 'front', image: 'img/second-edition/station-master-04.png' }] },
-    { title: '5', sides: [{ title: 'front', image: 'img/second-edition/station-master-05.png' }] },
-    { title: '6', sides: [{ title: 'front', image: 'img/second-edition/station-master-06.png' }] },
-    { title: '7', sides: [{ title: 'front', image: 'img/second-edition/station-master-07.png' }] },
-    { title: '8', sides: [{ title: 'front', image: 'img/second-edition/station-master-08.png' }] },
-    { title: '9', sides: [{ title: 'front', image: 'img/second-edition/station-master-09.png' }] },
+    { title: '1', sides: [{ title: 'front', image: 'img/gwt-argentina/station-master-01.png' }] },
+    { title: '2', sides: [{ title: 'front', image: 'img/gwt-argentina/station-master-02.png' }] },
+    { title: '3', sides: [{ title: 'front', image: 'img/gwt-argentina/station-master-03.png' }] },
+    { title: '4', sides: [{ title: 'front', image: 'img/gwt-argentina/station-master-04.png' }] },
+    { title: '5', sides: [{ title: 'front', image: 'img/gwt-argentina/station-master-05.png' }] },
+    { title: '6', sides: [{ title: 'front', image: 'img/gwt-argentina/station-master-06.png' }] },
+    { title: '7', sides: [{ title: 'front', image: 'img/gwt-argentina/station-master-07.png' }] },
+    { title: '8', sides: [{ title: 'front', image: 'img/gwt-argentina/station-master-08.png' }] },
+  ];
+
+  cities: Tile[] = [
+    { title: 'Le Havre', sides: [{ title: 'a' }, { title: 'b' }] },
+    { title: 'Rotterdam', sides: [{ title: 'a' }, { title: 'b' }] },
+    { title: 'Liverpool', sides: [{ title: 'a' }, { title: 'b' }] },
   ];
 
   getRandomNeutralBuildingOrder(): Tile[] {
@@ -76,7 +70,7 @@ export class SecondEditionConfigService {
   getRandomPlayerBuildings(): Tile[] {
     const playerBuildings = JSON.parse(JSON.stringify(this.playerBuildings)) as Tile[];
 
-    playerBuildings.forEach((playerBuilding) => {
+    playerBuildings.forEach((playerBuilding: Tile) => {
       playerBuilding.sides.splice(
         Math.floor(Math.random() * playerBuilding.sides.length),
         1,
@@ -86,15 +80,27 @@ export class SecondEditionConfigService {
     return playerBuildings;
   }
 
-  private shuffleArray<T>(inArray: T[]): T[] {
+  getRandomCities(): Tile[] {
+    const cities = JSON.parse(JSON.stringify(this.cities)) as Tile[];
+
+    cities.forEach((city: Tile) => {
+      city.sides.splice(Math.floor(Math.random() * city.sides.length), 1);
+    });
+
+    return cities;
+  }
+
+  private shuffleArray(inArray: Tile[]): Tile[] {
     const returnArray = inArray.slice();
 
-    for (let index = returnArray.length - 1; index > 0; index -= 1) {
-      const swapIndex = Math.floor(Math.random() * (index + 1));
-      const current = returnArray[index];
-      returnArray[index] = returnArray[swapIndex];
-      returnArray[swapIndex] = current;
-    }
+    for (
+      let swapIndex, currentValue, index = returnArray.length;
+      index;
+      swapIndex = Math.floor(Math.random() * index),
+        currentValue = returnArray[--index],
+        returnArray[index] = returnArray[swapIndex],
+        returnArray[swapIndex] = currentValue
+    );
 
     return returnArray;
   }

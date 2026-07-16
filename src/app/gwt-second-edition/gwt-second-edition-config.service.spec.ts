@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
-import { SecondEditionConfigService } from './second-edition-config.service';
+import { GwtSecondEditionConfigService } from './gwt-second-edition-config.service';
 
-describe('SecondEditionConfigService', () => {
-  let service: SecondEditionConfigService;
+describe('GwtSecondEditionConfigService', () => {
+  let service: GwtSecondEditionConfigService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(SecondEditionConfigService);
+    service = TestBed.inject(GwtSecondEditionConfigService);
   });
 
   it('should be created', () => {
@@ -89,7 +89,7 @@ describe('SecondEditionConfigService', () => {
 
     it('should have station masters with image paths', () => {
       service.stationMasters.forEach((master, index) => {
-        expect(master.sides[0].image).toBe(`img/second-edition/station-master-0${index + 1}.png`);
+        expect(master.sides[0].image).toBe(`img/gwt-second-edition/station-master-0${index + 1}.png`);
       });
     });
   });
@@ -189,7 +189,7 @@ describe('SecondEditionConfigService', () => {
 
       result.forEach((master) => {
         expect(master.sides[0].image).toBeDefined();
-        expect(master.sides[0].image).toMatch(/^img\/second-edition\/station-master-\d{2}\.png$/);
+        expect(master.sides[0].image).toMatch(/^img\/gwt-second-edition\/station-master-\d{2}\.png$/);
       });
     });
 
@@ -316,7 +316,7 @@ describe('SecondEditionConfigService', () => {
 
       if (found) {
         expect(found.title).toBe(original.title);
-        expect(found.sides[0].image).toMatch(/^img\/second-edition\/station-master-/);
+        expect(found.sides[0].image).toMatch(/^img\/gwt-second-edition\/station-master-/);
       }
     });
   });

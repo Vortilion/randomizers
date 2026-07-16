@@ -13,11 +13,11 @@ import type { Tile } from '../models/tile.model';
 import { PageFooterComponent } from '../page-footer/page-footer.component';
 import { PageHeaderComponent } from '../page-header/page-header.component';
 import { LocalStorageService } from '../shared/local-storage.service';
-import { SecondEditionConfigService } from './second-edition-config.service';
+import { GwtSecondEditionConfigService } from './gwt-second-edition-config.service';
 import { VariantWarningDialogComponent } from './variant-warning-dialog.component';
 
 @Component({
-  selector: 'app-second-edition',
+  selector: 'app-gwt-second-edition',
   standalone: true,
   imports: [
     FormsModule,
@@ -26,12 +26,12 @@ import { VariantWarningDialogComponent } from './variant-warning-dialog.componen
     PageFooterComponent,
     TranslocoDirective,
   ],
-  templateUrl: './second-edition.component.html',
-  styleUrl: './second-edition.component.scss',
+  templateUrl: './gwt-second-edition.component.html',
+  styleUrl: './gwt-second-edition.component.scss',
 })
-export class SecondEditionComponent {
+export class GwtSecondEditionComponent {
   readonly dialog = inject(MatDialog);
-  private applicationConfigService = inject(SecondEditionConfigService);
+  private applicationConfigService = inject(GwtSecondEditionConfigService);
   private responsive = inject(BreakpointObserver);
   private storage = inject(LocalStorageService);
 

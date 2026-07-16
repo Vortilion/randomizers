@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
-import { ArgentinaComponent } from './argentina/argentina.component';
+import { GwtArgentinaComponent } from './gwt-argentina/gwt-argentina.component';
 import { RandomizersDashboardComponent } from './randomizers-dashboard/randomizers-dashboard.component';
-import { SecondEditionComponent } from './second-edition/second-edition.component';
+import { GwtSecondEditionComponent } from './gwt-second-edition/gwt-second-edition.component';
 
 export const routes: Routes = [
   {
@@ -9,12 +9,12 @@ export const routes: Routes = [
     component: RandomizersDashboardComponent,
   },
   {
-    path: 'argentina',
-    component: ArgentinaComponent,
+    path: 'gwt-argentina',
+    component: GwtArgentinaComponent,
   },
   {
-    path: '2nd-edition',
-    component: SecondEditionComponent,
+    path: 'gwt-2nd-edition',
+    component: GwtSecondEditionComponent,
   },
   { path: '**', redirectTo: '', pathMatch: 'full' },
 ];

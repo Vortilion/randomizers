@@ -4,8 +4,8 @@
 
 Current sub-applications:
 
-- `Argentina` at `/randomizers/argentina`
-- `2nd Edition` at `/randomizers/2nd-edition`
+- `Argentina` at `/randomizers/gwt-argentina`
+- `2nd Edition` at `/randomizers/gwt-2nd-edition`
 
 ## Stack
 
@@ -41,8 +41,8 @@ The app runs at `http://localhost:4200/` by default.
 The application uses a parent route at `/randomizers`:
 
 - `/randomizers`: dashboard
-- `/randomizers/argentina`: Great Western Trail Argentina randomizer
-- `/randomizers/2nd-edition`: Great Western Trail 2nd Edition randomizer
+- `/randomizers/gwt-argentina`: Great Western Trail Argentina randomizer
+- `/randomizers/gwt-2nd-edition`: Great Western Trail 2nd Edition randomizer
 
 ## Deployment
 

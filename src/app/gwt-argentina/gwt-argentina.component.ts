@@ -6,14 +6,14 @@ import { TranslocoDirective } from '@jsverse/transloco';
 import { map } from 'rxjs/operators';
 import type { PlayerCountOption } from '../models/player-count-option.model';
 import type { Tile } from '../models/tile.model';
-import { ArgentinaConfigService } from './argentina-config.service';
+import { GwtArgentinaConfigService } from './gwt-argentina-config.service';
 import { MaterialModule } from '../material/material.module';
 import { PageFooterComponent } from '../page-footer/page-footer.component';
 import { PageHeaderComponent } from '../page-header/page-header.component';
 import { LocalStorageService } from '../shared/local-storage.service';
 
 @Component({
-  selector: 'app-argentina',
+  selector: 'app-gwt-argentina',
   standalone: true,
   imports: [
     MaterialModule,
@@ -21,11 +21,11 @@ import { LocalStorageService } from '../shared/local-storage.service';
     PageFooterComponent,
     TranslocoDirective,
   ],
-  templateUrl: './argentina.component.html',
-  styleUrls: ['./argentina.component.scss'],
+  templateUrl: './gwt-argentina.component.html',
+  styleUrls: ['./gwt-argentina.component.scss'],
 })
-export class ArgentinaComponent {
-  private applicationConfigService = inject(ArgentinaConfigService);
+export class GwtArgentinaComponent {
+  private applicationConfigService = inject(GwtArgentinaConfigService);
   private responsive = inject(BreakpointObserver);
   private storageService = inject(LocalStorageService);
 
