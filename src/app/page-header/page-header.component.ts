@@ -23,12 +23,12 @@ import { MaterialModule } from '../material/material.module';
 export class PageHeaderComponent {
   private responsive = inject(BreakpointObserver);
 
-  sidebarHandle = input.required<MatSidenav>();
+  sidebarHandle = input<MatSidenav | undefined>();
   dashboardRoute = input<string>();
   titlePrefix = input<string>('');
 
   // Unwrap signals for template use
-  get sidebarHandleRef(): MatSidenav {
+  get sidebarHandleRef(): MatSidenav | undefined {
     return this.sidebarHandle();
   }
 

@@ -1,13 +1,15 @@
 <div class="page-header">
   <mat-toolbar class="main-toolbar toolbar" [class.is-mobile]="isXSmall()">
-    <button
-      type="button"
-      [hidden]="!isXSmall()"
-      mat-icon-button
-      (click)="sidebarHandleRef.toggle()"
-      >
-      <mat-icon>menu</mat-icon>
-    </button>
+    @if (sidebarHandleRef) {
+      <button
+        type="button"
+        [hidden]="!isXSmall()"
+        mat-icon-button
+        (click)="sidebarHandleRef.toggle()"
+        >
+        <mat-icon>menu</mat-icon>
+      </button>
+    }
     @if (dashboardRouteRef) {
       <a
         mat-icon-button
