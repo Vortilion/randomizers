@@ -1,11 +1,11 @@
 # Randomizers
 
-`Randomizers` is an Angular 21 application that hosts multiple Great Western Trail setup randomizers behind a shared dashboard.
+`Randomizers` is an Angular 21 application that hosts multiple boardgame setup randomizers behind a shared dashboard.
 
 Current sub-applications:
 
-- `Argentina` at `/randomizers/gwt-argentina`
-- `2nd Edition` at `/randomizers/gwt-2nd-edition`
+- `GWT Argentina` at `/randomizers/gwt-argentina`
+- `GWT 2nd Edition` at `/randomizers/gwt-2nd-edition`
 
 ## Stack
 
@@ -55,6 +55,3 @@ npm run build:prod
 The build output is written to `dist/browser/`, and the script also copies `index.html` to `404.html` so client-side routing works on GitHub Pages.
 
 ## Notes
-
-- The previous `greatwesterntrail-arg` repository can remain unchanged as a backup.
-- This repository now represents the combined multi-randomizer application.
