@@ -7,9 +7,8 @@
     "update-available": "Dostępna aktualizacja"
   },
   "dashboard": {
-    "eyebrow": "Great Western Trail",
-    "title": "Randomizery",
-    "subtitle": "Wybierz generator przygotowania i przejdź od razu do edycji, w którą chcesz zagrać.",
+    "title": "Randomizery przygotowania planszówek",
+    "subtitle": "Wybierz dostępny generator przygotowania.",
     "argentina": {
       "title": "Great Western Trail Argentyna",
       "subtitle": "Great Western Trail: Argentina",
