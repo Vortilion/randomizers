@@ -11,13 +11,13 @@
     "title": "Randomizer",
     "subtitle": "Wähle einen Setup-Generator und springe direkt in die Edition, die du spielen möchtest.",
     "argentina": {
-      "title": "Argentinien",
+      "title": "Great Western Trail Argentinien",
       "subtitle": "Great Western Trail: Argentina",
       "description": "Randomisiere neutrale Gebäude, Stationsvorsteher, Spielergebäude und Stadtpläne für die Argentinien-Karte.",
       "action": "Argentinien-Randomizer öffnen"
     },
     "second-edition": {
-      "title": "2. Edition",
+      "title": "Great Western Trail 2. Edition",
       "subtitle": "Great Western Trail: Second Edition",
       "description": "Randomisiere Gebäude, Stationsvorsteher und optionalen Simmental-, Brahman- oder Rails To The North-Inhalt.",
       "action": "2.-Edition-Randomizer öffnen"
