@@ -74,7 +74,7 @@
               </button>
             </div>
             <mat-grid-list [cols]="isMax1280() ? 1 : 2" rowHeight="180px" gutterSize="5px">
-              @if (randomNeutralBuildings.length > 0) {
+              @if (randomNeutralBuildings().length > 0) {
                 <mat-grid-tile>
                   <mat-grid-tile-header>
                     <h3>

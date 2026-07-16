@@ -15,34 +15,32 @@
 
     <main class="flex-1 px-4 pb-8 xSmall:px-8">
       <div class="grid gap-4 lg:grid-cols-2">
-        <mat-card class="dashboard-card">
+        <mat-card
+          class="dashboard-card"
+          (click)="navigate('/gwt-argentina')"
+          (keydown.enter)="navigate('/gwt-argentina')"
+          (keydown.space)="navigate('/gwt-argentina'); $event.preventDefault()"
+        >
           <mat-card-header>
             <mat-card-title>{{ t('argentina.title') }}</mat-card-title>
-            <mat-card-subtitle>{{ t('argentina.subtitle') }}</mat-card-subtitle>
           </mat-card-header>
           <mat-card-content>
             <p>{{ t('argentina.description') }}</p>
           </mat-card-content>
-          <mat-card-actions>
-            <a mat-flat-button color="primary" routerLink="/gwt-argentina">
-              {{ t('argentina.action') }}
-            </a>
-          </mat-card-actions>
         </mat-card>
 
-        <mat-card class="dashboard-card">
+        <mat-card
+          class="dashboard-card"
+          (click)="navigate('/gwt-2nd-edition')"
+          (keydown.enter)="navigate('/gwt-2nd-edition')"
+          (keydown.space)="navigate('/gwt-2nd-edition'); $event.preventDefault()"
+        >
           <mat-card-header>
             <mat-card-title>{{ t('second-edition.title') }}</mat-card-title>
-            <mat-card-subtitle>{{ t('second-edition.subtitle') }}</mat-card-subtitle>
           </mat-card-header>
           <mat-card-content>
             <p>{{ t('second-edition.description') }}</p>
           </mat-card-content>
-          <mat-card-actions>
-            <a mat-flat-button color="primary" routerLink="/gwt-2nd-edition">
-              {{ t('second-edition.action') }}
-            </a>
-          </mat-card-actions>
         </mat-card>
       </div>
     </main>

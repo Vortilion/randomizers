@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Component, inject } from '@angular/core';
+import { Router } from '@angular/router';
 import { TranslocoDirective } from '@jsverse/transloco';
 import { LanguageSelectorComponent } from '../language-selector/language-selector.component';
 import { MaterialModule } from '../material/material.module';
@@ -9,7 +9,6 @@ import { PageFooterComponent } from '../page-footer/page-footer.component';
   selector: 'app-randomizers-dashboard',
   standalone: true,
   imports: [
-    RouterLink,
     TranslocoDirective,
     LanguageSelectorComponent,
     MaterialModule,
@@ -18,4 +17,10 @@ import { PageFooterComponent } from '../page-footer/page-footer.component';
   templateUrl: './randomizers-dashboard.component.html',
   styleUrl: './randomizers-dashboard.component.scss',
 })
-export class RandomizersDashboardComponent {}
+export class RandomizersDashboardComponent {
+  private router = inject(Router);
+
+  navigate(route: string): void {
+    this.router.navigate([route]);
+  }
+}
