@@ -1,4 +1,4 @@
-import { Component, signal, inject } from '@angular/core';
+import { Component, signal, inject, afterNextRender } from '@angular/core';
 import {
   TranslocoService,
   TranslocoPipe,
@@ -26,7 +26,11 @@ export class LanguageSelectorComponent {
 
     if (browserLang && this.translocoService.isLang(browserLang)) {
       this.activeLang.set(browserLang);
-      this.translocoService.setActiveLang(browserLang);
+      if (this.translocoService.getActiveLang() !== browserLang) {
+        afterNextRender(() => {
+          this.translocoService.setActiveLang(browserLang);
+        });
+      }
     } else {
       const defaultLang = this.translocoService.getDefaultLang();
       this.activeLang.set(defaultLang);
