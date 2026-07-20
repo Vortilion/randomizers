@@ -18,7 +18,6 @@ import { VariantWarningDialogComponent } from './variant-warning-dialog.componen
 
 @Component({
   selector: 'app-gwt-second-edition',
-  standalone: true,
   imports: [
     FormsModule,
     MaterialModule,

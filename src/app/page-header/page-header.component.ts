@@ -10,7 +10,6 @@ import { MaterialModule } from '../material/material.module';
 
 @Component({
   selector: 'app-page-header',
-  standalone: true,
   imports: [
     MaterialModule,
     LanguageSelectorComponent,

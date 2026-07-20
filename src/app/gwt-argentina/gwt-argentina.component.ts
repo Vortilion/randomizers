@@ -14,7 +14,6 @@ import { LocalStorageService } from '../shared/local-storage.service';
 
 @Component({
   selector: 'app-gwt-argentina',
-  standalone: true,
   imports: [
     MaterialModule,
     PageHeaderComponent,

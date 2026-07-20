@@ -8,10 +8,9 @@ import { MaterialModule } from '../material/material.module';
 
 @Component({
   selector: 'app-language-selector',
-  standalone: true,
   imports: [MaterialModule, TranslocoPipe],
   templateUrl: './language-selector.component.html',
-  styleUrls: ['./language-selector.component.scss'],
+  styleUrl: './language-selector.component.scss',
 })
 export class LanguageSelectorComponent {
   private translocoService = inject(TranslocoService);

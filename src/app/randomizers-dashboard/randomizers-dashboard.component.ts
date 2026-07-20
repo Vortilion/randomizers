@@ -7,7 +7,6 @@ import { PageFooterComponent } from '../page-footer/page-footer.component';
 
 @Component({
   selector: 'app-randomizers-dashboard',
-  standalone: true,
   imports: [
     TranslocoDirective,
     LanguageSelectorComponent,

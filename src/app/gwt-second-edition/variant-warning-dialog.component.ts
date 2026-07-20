@@ -11,7 +11,6 @@ import { TranslocoDirective } from '@jsverse/transloco';
 
 @Component({
   selector: 'app-variant-warning-dialog',
-  standalone: true,
   imports: [
     MatButtonModule,
     MatDialogActions,
