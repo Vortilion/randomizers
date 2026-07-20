@@ -1,4 +1,8 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+// @vitest-environment jsdom
+import '@angular/compiler';
+import * as ngCore from '@angular/core';
+import { BrowserTestingModule, platformBrowserTesting } from '@angular/platform-browser/testing';
+import { ComponentFixture, TestBed, getTestBed } from '@angular/core/testing';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { MatDialog } from '@angular/material/dialog';
 import { of } from 'rxjs';
@@ -23,16 +27,25 @@ const matDialogMock = {
   }),
 };
 
+const resolveComponentResources = (
+  ngCore as typeof ngCore & {
+    ɵresolveComponentResources: (resolver: (url: string) => Promise<string>) => Promise<void>;
+  }
+).ɵresolveComponentResources;
+
+if (!TestBed.platform || !TestBed.ngModule) {
+  getTestBed().initTestEnvironment(BrowserTestingModule, platformBrowserTesting(), {
+    errorOnUnknownElements: true,
+    errorOnUnknownProperties: true,
+  });
+}
+
 describe('SecondEditionComponent', () => {
   let component: GwtSecondEditionComponent;
   let fixture: ComponentFixture<GwtSecondEditionComponent>;
 
   beforeEach(async () => {
-    TestBed.overrideComponent(GwtSecondEditionComponent, {
-      set: {
-        template: '',
-      },
-    });
+    await resolveComponentResources(() => Promise.resolve(''));
 
     await TestBed.configureTestingModule({
       imports: [GwtSecondEditionComponent],
@@ -42,7 +55,16 @@ describe('SecondEditionComponent', () => {
         { provide: LocalStorageService, useValue: localStorageServiceMock },
         { provide: MatDialog, useValue: matDialogMock },
       ],
-    }).compileComponents();
+    })
+      .overrideComponent(GwtSecondEditionComponent, {
+        set: {
+          template: '',
+          styles: [],
+          styleUrl: undefined,
+          styleUrls: [],
+        },
+      })
+      .compileComponents();
 
     fixture = TestBed.createComponent(GwtSecondEditionComponent);
     component = fixture.componentInstance;
