@@ -6,6 +6,7 @@ Current sub-applications:
 
 - `GWT Argentina` at `/randomizers/gwt-argentina`
 - `GWT 2nd Edition` at `/randomizers/gwt-2nd-edition`
+- `GWT New Zealand` at `/randomizers/gwt-new-zealand`
 
 ## Stack
 
@@ -43,6 +44,7 @@ The application uses a parent route at `/randomizers`:
 - `/randomizers`: dashboard
 - `/randomizers/gwt-argentina`: Great Western Trail Argentina randomizer
 - `/randomizers/gwt-2nd-edition`: Great Western Trail 2nd Edition randomizer
+- `/randomizers/gwt-new-zealand`: Great Western Trail New Zealand randomizer
 
 ## Deployment
 
