@@ -76,13 +76,14 @@
                       >:
                     </h3>
                   </mat-grid-tile-header>
-                  <div class="flex">
+                  <div class="flex pt-10">
                     @for (randomHarborMaster of randomHarborMasters(); track randomHarborMaster.title) {
                       <div>
                         <img
                           class="px-1 xSmall:px-2 md:px-4"
                           [src]="randomHarborMaster.sides[0].image"
                           alt="Harbor Master"
+                          width="90"
                         />
                       </div>
                     }

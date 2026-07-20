@@ -83,14 +83,14 @@
                           >:
                         </h3>
                       </mat-grid-tile-header>
-                      <div class="flex">
+                      <div class="flex pt-10">
                         @for (randomStationMaster of randomStationMasters(); track randomStationMaster) {
                           <div>
                             <img
                               class="px-1 xSmall:px-2 md:px-4"
                               [src]="randomStationMaster.sides[0].image"
                               alt="Station Master"
-                              width="100"
+                              width="90"
                               />
                           </div>
                         }
