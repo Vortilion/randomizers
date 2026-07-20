@@ -1,13 +1,35 @@
-import { TestBed } from '@angular/core/testing';
+// @vitest-environment jsdom
+import '@angular/compiler';
+import * as ngCore from '@angular/core';
+import { BrowserTestingModule, platformBrowserTesting } from '@angular/platform-browser/testing';
+import { TestBed, ɵgetCleanupHook as getCleanupHook } from '@angular/core/testing';
 import { RouterModule } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { SwUpdate } from '@angular/service-worker';
 import { provideTransloco } from '@jsverse/transloco';
-import { describe, beforeEach, it, expect } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 import { App } from './app';
+
+const resolveComponentResources = (
+  ngCore as typeof ngCore & {
+    ɵresolveComponentResources: (resolver: (url: string) => Promise<string>) => Promise<void>;
+  }
+).ɵresolveComponentResources;
+
+if (!TestBed.platform || !TestBed.ngModule) {
+  TestBed.initTestEnvironment(BrowserTestingModule, platformBrowserTesting(), {
+    errorOnUnknownElements: true,
+    errorOnUnknownProperties: true,
+  });
+}
+
+beforeEach(getCleanupHook(false));
+afterEach(getCleanupHook(true));
 
 describe('App', () => {
   beforeEach(async () => {
+    await resolveComponentResources(() => Promise.resolve(''));
+
     await TestBed.configureTestingModule({
       imports: [RouterModule.forRoot([]), App],
       providers: [
@@ -32,7 +54,15 @@ describe('App', () => {
           },
         },
       ],
-    }).compileComponents();
+    })
+      .overrideComponent(App, {
+        set: {
+          template: '<router-outlet></router-outlet>',
+          styles: [],
+          styleUrl: undefined,
+        },
+      })
+      .compileComponents();
   });
 
   it('should create the app', () => {
