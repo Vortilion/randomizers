@@ -41,6 +41,20 @@
             <p>{{ t('second-edition.description') }}</p>
           </mat-card-content>
         </mat-card>
+
+        <mat-card
+          class="dashboard-card"
+          (click)="navigate('/gwt-new-zealand')"
+          (keydown.enter)="navigate('/gwt-new-zealand')"
+          (keydown.space)="navigate('/gwt-new-zealand'); $event.preventDefault()"
+        >
+          <mat-card-header>
+            <mat-card-title>{{ t('new-zealand.title') }}</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <p>{{ t('new-zealand.description') }}</p>
+          </mat-card-content>
+        </mat-card>
       </div>
     </main>
 
