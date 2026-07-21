@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1784547193782,
+  "timestamp": 1784615638865,
   "index": "https://vortilion.github.io/randomizers/index.html",
   "assetGroups": [
     {
@@ -13,9 +13,9 @@
       "urls": [
         "https://vortilion.github.io/randomizers/favicon.ico",
         "https://vortilion.github.io/randomizers/index.html",
-        "https://vortilion.github.io/randomizers/main-CRDSVNWH.js",
+        "https://vortilion.github.io/randomizers/main-FU4FI6HF.js",
         "https://vortilion.github.io/randomizers/manifest.webmanifest",
-        "https://vortilion.github.io/randomizers/styles-7FCEFMQM.css"
+        "https://vortilion.github.io/randomizers/styles-WBDXQYYD.css"
       ],
       "patterns": []
     },
@@ -34,6 +34,7 @@
         "https://vortilion.github.io/randomizers/icons/icon-256x256.png",
         "https://vortilion.github.io/randomizers/icons/icon-384x384.png",
         "https://vortilion.github.io/randomizers/icons/icon-512x512.png",
+        "https://vortilion.github.io/randomizers/img/gwt-argentina/cover.jpg",
         "https://vortilion.github.io/randomizers/img/gwt-argentina/station-master-01.png",
         "https://vortilion.github.io/randomizers/img/gwt-argentina/station-master-02.png",
         "https://vortilion.github.io/randomizers/img/gwt-argentina/station-master-03.png",
@@ -42,6 +43,7 @@
         "https://vortilion.github.io/randomizers/img/gwt-argentina/station-master-06.png",
         "https://vortilion.github.io/randomizers/img/gwt-argentina/station-master-07.png",
         "https://vortilion.github.io/randomizers/img/gwt-argentina/station-master-08.png",
+        "https://vortilion.github.io/randomizers/img/gwt-new-zealand/cover.jpg",
         "https://vortilion.github.io/randomizers/img/gwt-new-zealand/harbormaster-01.png",
         "https://vortilion.github.io/randomizers/img/gwt-new-zealand/harbormaster-02.png",
         "https://vortilion.github.io/randomizers/img/gwt-new-zealand/harbormaster-03.png",
@@ -50,6 +52,7 @@
         "https://vortilion.github.io/randomizers/img/gwt-new-zealand/harbormaster-06.png",
         "https://vortilion.github.io/randomizers/img/gwt-new-zealand/harbormaster-07.png",
         "https://vortilion.github.io/randomizers/img/gwt-new-zealand/harbormaster-08.png",
+        "https://vortilion.github.io/randomizers/img/gwt-second-edition/cover.jpg",
         "https://vortilion.github.io/randomizers/img/gwt-second-edition/station-master-01.png",
         "https://vortilion.github.io/randomizers/img/gwt-second-edition/station-master-02.png",
         "https://vortilion.github.io/randomizers/img/gwt-second-edition/station-master-03.png",
@@ -73,6 +76,7 @@
     "https://vortilion.github.io/randomizers/icons/icon-256x256.png": "a3151cc3f34e905b7caf2401f4f1b6c8a26593d0",
     "https://vortilion.github.io/randomizers/icons/icon-384x384.png": "1c09aac08839a125fc1c58e16360c76c3288cf2b",
     "https://vortilion.github.io/randomizers/icons/icon-512x512.png": "7bf5711be7f32d360c3adfff06d06d7dc52ca20b",
+    "https://vortilion.github.io/randomizers/img/gwt-argentina/cover.jpg": "ef67df4670a22856438ca38a649921baea1c0cbd",
     "https://vortilion.github.io/randomizers/img/gwt-argentina/station-master-01.png": "ba48255fff4149904071aff08fddfc17ffc6cc14",
     "https://vortilion.github.io/randomizers/img/gwt-argentina/station-master-02.png": "f0fc45698e37ad9bf76f27b66e1c24570c924297",
     "https://vortilion.github.io/randomizers/img/gwt-argentina/station-master-03.png": "c33c27a91c09eb206e8a716640db5878993dbeb0",
@@ -81,6 +85,7 @@
     "https://vortilion.github.io/randomizers/img/gwt-argentina/station-master-06.png": "57a503fab1a49d24f593813484521200cdddbada",
     "https://vortilion.github.io/randomizers/img/gwt-argentina/station-master-07.png": "ecc6cc9e63cf4768f0dd82c4508ae636c7dd0809",
     "https://vortilion.github.io/randomizers/img/gwt-argentina/station-master-08.png": "9b51f4c21199d4b2dc54d7f88805dbed42da2d7e",
+    "https://vortilion.github.io/randomizers/img/gwt-new-zealand/cover.jpg": "a5aff8151928a1f41e56ee6d4e5a330527e660ac",
     "https://vortilion.github.io/randomizers/img/gwt-new-zealand/harbormaster-01.png": "dd286be2da080ca9d2b45fc094835d6d3facba38",
     "https://vortilion.github.io/randomizers/img/gwt-new-zealand/harbormaster-02.png": "6b7d7029a65496efe7561e5e45127a743f734d9a",
     "https://vortilion.github.io/randomizers/img/gwt-new-zealand/harbormaster-03.png": "4439dcc0cc053842d6488af16a39a4f6d7aeeeab",
@@ -89,6 +94,7 @@
     "https://vortilion.github.io/randomizers/img/gwt-new-zealand/harbormaster-06.png": "a880bd4d0e10dc2caae8ad366fcbdf1d5f17991b",
     "https://vortilion.github.io/randomizers/img/gwt-new-zealand/harbormaster-07.png": "e1da853002ddb724f1db6b54da745919889eaa43",
     "https://vortilion.github.io/randomizers/img/gwt-new-zealand/harbormaster-08.png": "733e88aed071d87ab784e8cd2ef2a34f74d3b666",
+    "https://vortilion.github.io/randomizers/img/gwt-second-edition/cover.jpg": "47cd638180fedb82460d6cf45a575b14357d90e5",
     "https://vortilion.github.io/randomizers/img/gwt-second-edition/station-master-01.png": "af0f9a58ef91c22a8d8d145c53de3c98f535b477",
     "https://vortilion.github.io/randomizers/img/gwt-second-edition/station-master-02.png": "8b78e906ab8dca113cbcddf6863a86cf283c54ef",
     "https://vortilion.github.io/randomizers/img/gwt-second-edition/station-master-03.png": "f38a4b964c5d694a7b55198b36d1da8c12c9787e",
@@ -98,10 +104,10 @@
     "https://vortilion.github.io/randomizers/img/gwt-second-edition/station-master-07.png": "e5b541bdcd58fe821011bcd0ec31b9c642a09cfe",
     "https://vortilion.github.io/randomizers/img/gwt-second-edition/station-master-08.png": "ea84b6e6f8c677ff8ddb0cd183b0f5f9b471d9f7",
     "https://vortilion.github.io/randomizers/img/gwt-second-edition/station-master-09.png": "4d5b1a0880aec27148b3b3e438e62a81d43fcda5",
-    "https://vortilion.github.io/randomizers/index.html": "23dfa59d47c404c9271448ec13c8174ef0c02211",
-    "https://vortilion.github.io/randomizers/main-CRDSVNWH.js": "7f0bed45ea2477ced371a7121fb539370109ac30",
+    "https://vortilion.github.io/randomizers/index.html": "3579ef7c8c90f03a1ee08c48d024412f85bb5078",
+    "https://vortilion.github.io/randomizers/main-FU4FI6HF.js": "c157a7bc7b6ea445963b0ce1fd783b5b40b196c1",
     "https://vortilion.github.io/randomizers/manifest.webmanifest": "508f5f45fef07b9dbb63625caff78b605adf6839",
-    "https://vortilion.github.io/randomizers/styles-7FCEFMQM.css": "fec4bb2673dd4cfa2f658cfab5e3839f6ac93c4f"
+    "https://vortilion.github.io/randomizers/styles-WBDXQYYD.css": "c4f153dacd4a427c9a79b49bee89c090101c38a7"
   },
   "navigationUrls": [
     {
