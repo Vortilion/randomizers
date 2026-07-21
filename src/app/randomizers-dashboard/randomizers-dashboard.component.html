@@ -13,46 +13,56 @@
     </header>
 
     <main class="flex-1 px-4 pb-8 xSmall:px-8">
-      <div class="grid gap-4 lg:grid-cols-2">
+      <div class="grid gap-4 lg:grid-cols-3">
         <mat-card
           class="dashboard-card"
-          (click)="navigate('/gwt-argentina')"
-          (keydown.enter)="navigate('/gwt-argentina')"
-          (keydown.space)="navigate('/gwt-argentina'); $event.preventDefault()"
-        >
-          <mat-card-header>
-            <mat-card-title>{{ t('argentina.title') }}</mat-card-title>
-          </mat-card-header>
-          <mat-card-content>
-            <p>{{ t('argentina.description') }}</p>
-          </mat-card-content>
-        </mat-card>
-
-        <mat-card
-          class="dashboard-card"
+          appearance="outlined"
           (click)="navigate('/gwt-2nd-edition')"
           (keydown.enter)="navigate('/gwt-2nd-edition')"
           (keydown.space)="navigate('/gwt-2nd-edition'); $event.preventDefault()"
         >
           <mat-card-header>
-            <mat-card-title>{{ t('second-edition.title') }}</mat-card-title>
+            <mat-card-title>
+              <p class="mb-4">{{ t('second-edition.title') }}</p></mat-card-title>
           </mat-card-header>
+          <img mat-card-image src="/img/gwt-second-edition/cover.jpg" alt="Cover of Great Western Trail: Second Edition">
           <mat-card-content>
-            <p>{{ t('second-edition.description') }}</p>
+            <p class="mt-4">{{ t('second-edition.description') }}</p>
           </mat-card-content>
         </mat-card>
 
         <mat-card
           class="dashboard-card"
+          appearance="outlined"
+          (click)="navigate('/gwt-argentina')"
+          (keydown.enter)="navigate('/gwt-argentina')"
+          (keydown.space)="navigate('/gwt-argentina'); $event.preventDefault()"
+        >
+          <mat-card-header>
+            <mat-card-title>
+              <p class="mb-4">{{ t('argentina.title') }}</p>
+            </mat-card-title>
+          </mat-card-header>
+          <img mat-card-image src="/img/gwt-argentina/cover.jpg" alt="Cover of Great Western Trail: Argentina">
+          <mat-card-content>
+            <p class="mt-4">{{ t('argentina.description') }}</p>
+          </mat-card-content>
+        </mat-card>
+
+        <mat-card
+          class="dashboard-card"
+          appearance="outlined"
           (click)="navigate('/gwt-new-zealand')"
           (keydown.enter)="navigate('/gwt-new-zealand')"
           (keydown.space)="navigate('/gwt-new-zealand'); $event.preventDefault()"
         >
           <mat-card-header>
-            <mat-card-title>{{ t('new-zealand.title') }}</mat-card-title>
+            <mat-card-title>
+              <p class="mb-4">{{ t('new-zealand.title') }}</p></mat-card-title>
           </mat-card-header>
+          <img mat-card-image src="/img/gwt-new-zealand/cover.jpg" alt="Cover of Great Western Trail: New Zealand">
           <mat-card-content>
-            <p>{{ t('new-zealand.description') }}</p>
+            <p class="mt-4">{{ t('new-zealand.description') }}</p>
           </mat-card-content>
         </mat-card>
       </div>
